@@ -19,10 +19,11 @@ const Header = ({ buttonPrevIcon, buttonNextIcon }: HeaderProps) => {
     calendarView,
     setCalendarView,
     theme,
+    locale,
     timePicker,
   } = useCalendarContext();
 
-  const currentMonthText = 'testing change';
+  const currentMonthText = dayjs(currentDate).locale(locale).format('MMMM');
 
   const renderPrevButton = (
     <Pressable
