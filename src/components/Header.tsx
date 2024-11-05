@@ -19,7 +19,6 @@ const Header = ({ buttonPrevIcon, buttonNextIcon }: HeaderProps) => {
     calendarView,
     setCalendarView,
     theme,
-    locale,
     timePicker,
   } = useCalendarContext();
 
