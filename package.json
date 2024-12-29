@@ -172,8 +172,10 @@
     ]
   },
   "dependencies": {
+    "@react-native/assets-registry": "^0.76.5",
     "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
+    "react-native-svg": "^15.10.1",
     "react-native-wheely": "^0.6.0"
   }
 }

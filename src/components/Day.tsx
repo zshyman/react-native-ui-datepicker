@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Pressable, StyleSheet } from 'react-native';
 import { CalendarThemeProps, IDayObject } from '../types';
 import { CALENDAR_HEIGHT } from '../enums';
 import { addColorAlpha } from '../utils';
 import { isEqual } from 'lodash';
+import CircularProgressBar from './CircularProgressBar';
 
 export const daySize = 46;
 
@@ -41,12 +42,9 @@ function Day({
   }, [onSelectDate, date]);
 
   const {
-    calendarTextStyle,
     dayContainerStyle,
     selectedItemColor,
-    selectedTextStyle,
     todayContainerStyle,
-    todayTextStyle,
     selectedRangeBackgroundColor,
   } = theme;
 
@@ -70,16 +68,6 @@ function Day({
       }
     : null;
 
-  const textStyle = isSelected
-    ? { color: '#fff', ...selectedTextStyle }
-    : isToday
-    ? {
-        ...calendarTextStyle,
-        color: selectedItemColor || '#0047FF',
-        ...todayTextStyle,
-      }
-    : calendarTextStyle;
-
   const rangeRootBackground =
     selectedRangeBackgroundColor ?? addColorAlpha(selectedItemColor, 0.15);
 
@@ -90,7 +78,7 @@ function Day({
       {inRange && !isCrop ? (
         <View
           style={[style.rangeRoot, { backgroundColor: rangeRootBackground }]}
-        ></View>
+        />
       ) : null}
 
       {isCrop && leftCrop ? (
@@ -102,7 +90,7 @@ function Day({
               backgroundColor: rangeRootBackground,
             },
           ]}
-        ></View>
+        />
       ) : null}
 
       {isCrop && rightCrop ? (
@@ -114,7 +102,7 @@ function Day({
               backgroundColor: rangeRootBackground,
             },
           ]}
-        ></View>
+        />
       ) : null}
 
       <Pressable
@@ -131,9 +119,14 @@ function Day({
         accessibilityRole="button"
         accessibilityLabel={text}
       >
-        <View style={[style.dayTextContainer]}>
-          <Text style={[textStyle]}>{text}</Text>
-        </View>
+        <CircularProgressBar
+          size={37}
+          strokeWidth={3}
+          progress={75}
+          color="tomato"
+          text={text}
+          textStyle={{ color: isSelected ? 'white' : 'black' }}
+        />
       </Pressable>
     </View>
   );
