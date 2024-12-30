@@ -14,6 +14,7 @@ interface Props extends Omit<IDayObject, 'day'> {
   onSelectDate: (date: string) => void;
   theme: CalendarThemeProps;
   height?: number;
+  percentChecked: number;
 }
 
 function EmptyDayPure({ height }: { height?: number }) {
@@ -36,6 +37,7 @@ function Day({
   onSelectDate,
   theme,
   height,
+  percentChecked,
 }: Props) {
   const onPress = React.useCallback(() => {
     onSelectDate(date);
@@ -122,7 +124,7 @@ function Day({
         <CircularProgressBar
           size={37}
           strokeWidth={3}
-          progress={75}
+          progress={percentChecked}
           color="tomato"
           text={text}
           textStyle={{ color: isSelected ? 'white' : 'black' }}

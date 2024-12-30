@@ -37,6 +37,8 @@ export interface DatePickerSingleProps
   mode: 'single';
   date?: DateType;
   onChange?: SingleChange;
+  resolutions: any;
+  resolutionUtilities: any;
 }
 
 export interface DatePickerRangeProps
@@ -47,6 +49,8 @@ export interface DatePickerRangeProps
   startDate?: DateType;
   endDate?: DateType;
   onChange?: RangeChange;
+  resolutions: any;
+  resolutionUtilities: any;
 }
 
 export interface DatePickeMultipleProps
@@ -56,6 +60,8 @@ export interface DatePickeMultipleProps
   mode: 'multiple';
   dates?: DateType[];
   onChange?: MultiChange;
+  resolutions: any;
+  resolutionUtilities: any;
 }
 
 const DateTimePicker = (
@@ -81,6 +87,8 @@ const DateTimePicker = (
     onChange,
     initialView = 'day',
     height,
+    resolutions,
+    resolutionUtilities,
     ...rest
   } = props;
 
@@ -303,6 +311,8 @@ const DateTimePicker = (
         firstDayOfWeek: firstDay,
         height,
         theme: rest,
+        resolutions,
+        resolutionUtilities,
         setCalendarView,
         onSelectDate,
         onSelectMonth,
@@ -312,6 +322,8 @@ const DateTimePicker = (
       }}
     >
       <Calendar
+        resolutions={props.resolutions}
+        resolutionUtilities={props.resolutionUtilities}
         buttonPrevIcon={buttonPrevIcon}
         buttonNextIcon={buttonNextIcon}
         height={height}

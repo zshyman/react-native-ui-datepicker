@@ -44,6 +44,19 @@ export default function App() {
   const [theme, setTheme] = useState<ITheme | undefined>(Themes[0]);
   const [locale, setLocale] = useState('en');
 
+  const percentChecked = (resolutions: any[], day: number) => {
+    return resolutions[day]
+  }
+
+  const resolutions = [
+    50, 100, 75, 23, 14, 67, 90, 13, 45, 34,
+    50, 100, 75, 23, 14, 67, 90, 13, 45, 34,
+    50, 100, 75, 23, 14, 67, 90, 13, 45, 34,
+    50, 100, 75, 23, 14, 67, 90, 13, 45, 34,
+  ]
+
+  const resolutionUtilities = {'percentChecked': percentChecked}
+
   const onChangeMode = useCallback(
     (value: ModeType) => {
       setDate(undefined);
@@ -190,6 +203,8 @@ export default function App() {
               startDate={range.startDate}
               endDate={range.endDate}
               dates={dates}
+              resolutions={resolutions}
+              resolutionUtilities={resolutionUtilities}
               //minDate={dayjs().startOf('day')}
               //maxDate={dayjs().add(3, 'day').endOf('day')}
               //disabledDates={[dayjs(), dayjs().add(1, 'day')]}

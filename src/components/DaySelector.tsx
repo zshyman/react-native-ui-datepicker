@@ -30,6 +30,8 @@ const DaySelector = () => {
     firstDayOfWeek,
     theme,
     height,
+    resolutions,
+    resolutionUtilities,
   } = useCalendarContext();
 
   const { year, month, hour, minute } = getParsedDate(currentDate);
@@ -208,6 +210,10 @@ const DaySelector = () => {
               rightCrop={day.rightCrop}
               onSelectDate={handleSelectDate}
               height={height}
+              percentChecked={resolutionUtilities.percentChecked(
+                resolutions,
+                index
+              )}
             />
           ) : (
             <EmptyDay key={index} height={height} />

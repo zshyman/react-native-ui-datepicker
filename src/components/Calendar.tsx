@@ -19,6 +19,8 @@ const CalendarView: Record<CalendarViews, ReactNode> = {
 
 interface PropTypes extends HeaderProps {
   height?: number;
+  resolutions: any;
+  resolutionUtilities: any;
 }
 
 const Calendar = ({ buttonPrevIcon, buttonNextIcon, height }: PropTypes) => {
