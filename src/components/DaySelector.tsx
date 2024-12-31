@@ -195,6 +195,13 @@ const DaySelector = () => {
       </View>
       <View style={styles.daysContainer} testID="days">
         {daysGrid?.map((day, index) => {
+          var percentChecked = 75;
+          if (resolutionUtilities != undefined && resolutions != undefined) {
+            percentChecked = resolutionUtilities.percentChecked(
+              resolutions,
+              index
+            );
+          }
           return day ? (
             <Day
               key={index}
@@ -210,10 +217,7 @@ const DaySelector = () => {
               rightCrop={day.rightCrop}
               onSelectDate={handleSelectDate}
               height={height}
-              percentChecked={resolutionUtilities.percentChecked(
-                resolutions,
-                index
-              )}
+              percentChecked={percentChecked}
             />
           ) : (
             <EmptyDay key={index} height={height} />

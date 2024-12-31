@@ -14,7 +14,7 @@ interface Props extends Omit<IDayObject, 'day'> {
   onSelectDate: (date: string) => void;
   theme: CalendarThemeProps;
   height?: number;
-  percentChecked: number;
+  percentChecked?: number;
 }
 
 function EmptyDayPure({ height }: { height?: number }) {
@@ -37,7 +37,7 @@ function Day({
   onSelectDate,
   theme,
   height,
-  percentChecked,
+  percentChecked = 75,
 }: Props) {
   const onPress = React.useCallback(() => {
     onSelectDate(date);
