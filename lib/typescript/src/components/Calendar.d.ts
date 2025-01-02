@@ -2,6 +2,8 @@ import React from 'react';
 import type { HeaderProps } from '../types';
 interface PropTypes extends HeaderProps {
     height?: number;
+    resolutions?: any[];
+    resolutionUtilities?: any;
 }
 declare const _default: React.MemoExoticComponent<({ buttonPrevIcon, buttonNextIcon, height }: PropTypes) => React.JSX.Element>;
 export default _default;

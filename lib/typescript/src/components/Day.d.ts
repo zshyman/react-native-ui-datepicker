@@ -7,12 +7,13 @@ interface Props extends Omit<IDayObject, 'day'> {
     onSelectDate: (date: string) => void;
     theme: CalendarThemeProps;
     height?: number;
+    percentChecked?: number;
 }
 declare function EmptyDayPure({ height }: {
     height?: number;
 }): React.JSX.Element;
 export declare const EmptyDay: React.MemoExoticComponent<typeof EmptyDayPure>;
-declare function Day({ date, text, disabled, isCurrentMonth, isToday, isSelected, inRange, leftCrop, rightCrop, onSelectDate, theme, height, }: Props): React.JSX.Element;
+declare function Day({ date, text, disabled, isCurrentMonth, isToday, isSelected, inRange, leftCrop, rightCrop, onSelectDate, theme, height, percentChecked, }: Props): React.JSX.Element;
 declare const _default: React.MemoExoticComponent<typeof Day>;
 export default _default;
 //# sourceMappingURL=Day.d.ts.map
